@@ -226,7 +226,7 @@ class AerojumpNeovim(object):
             n/a
         """
         self.uses_tabs = self.nvim.vars.get("aerojump_uses_tabs")
-        filter_string = ''
+        self.filter_string = ''
         settings = {}
         settings['input'] = args[0]
         settings['mode'] = args[1]
