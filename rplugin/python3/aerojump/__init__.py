@@ -50,6 +50,7 @@ class AerojumpNeovim(object):
             "<CR>": "AerojumpSelect",
             "<Space>": "AerojumpSelect",
         } 
+        self.aj = None
 
     def __log(self, s):
         self.logstr.append(str(s))
@@ -175,6 +176,8 @@ class AerojumpNeovim(object):
         Returns:
             n/a
         """
+        if self.aj is None:
+            return
         try:
             if self.filter_string == self.nvim.current.line:
                 return
