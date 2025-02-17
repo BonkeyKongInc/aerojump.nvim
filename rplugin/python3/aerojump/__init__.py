@@ -178,7 +178,7 @@ class AerojumpNeovim(object):
         try:
             if self.filter_string == self.nvim.current.line:
                 return
-        except e:
+        except NameError:
             self.filter_string = self.nvim.current.line
         has_res = self.aj.apply_filter(self.filter_string)
         if has_res:
