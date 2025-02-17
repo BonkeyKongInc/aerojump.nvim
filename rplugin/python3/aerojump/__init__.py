@@ -49,7 +49,8 @@ class AerojumpNeovim(object):
             "<ESC>": "AerojumpSelect",
             "<CR>": "AerojumpSelect",
             "<Space>": "AerojumpSelect",
-        }
+        } 
+        self.filter_string = ''
 
     def __log(self, s):
         self.logstr.append(str(s))
