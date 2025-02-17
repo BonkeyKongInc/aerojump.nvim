@@ -50,7 +50,6 @@ class AerojumpNeovim(object):
             "<CR>": "AerojumpSelect",
             "<Space>": "AerojumpSelect",
         } 
-        self.filter_string = ''
 
     def __log(self, s):
         self.logstr.append(str(s))
@@ -176,7 +175,7 @@ class AerojumpNeovim(object):
         Returns:
             n/a
         """
-        if self.filter_string == self.nvim.current.line:
+        if self.filter_string != None and self.filter_string == self.nvim.current.line:
             return
         self.filter_string = self.nvim.current.line
         has_res = self.aj.apply_filter(self.filter_string)
@@ -227,7 +226,7 @@ class AerojumpNeovim(object):
             n/a
         """
         self.uses_tabs = self.nvim.vars.get("aerojump_uses_tabs")
-        self.filter_string = ''
+        filter_string = ''
         settings = {}
         settings['input'] = args[0]
         settings['mode'] = args[1]
