@@ -175,9 +175,11 @@ class AerojumpNeovim(object):
         Returns:
             n/a
         """
-        if self.filter_string != None and self.filter_string == self.nvim.current.line:
-            return
-        self.filter_string = self.nvim.current.line
+        try:
+            if self.filter_string == self.nvim.current.line:
+                return
+        except e:
+            self.filter_string = self.nvim.current.line
         has_res = self.aj.apply_filter(self.filter_string)
         if has_res:
             self.__draw()
